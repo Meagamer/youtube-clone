@@ -1,6 +1,6 @@
-
-import { FaSearch } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 import { MdKeyboardVoice } from 'react-icons/md';
+import { FaSearch } from 'react-icons/fa';
 
 function SearchBar() {
   return (
@@ -16,11 +16,11 @@ function SearchBar() {
         </button>
       </div>
 
-      <button className="big:hidden flex min-w-10 min-h-10 rounded-full bg-secondary ml-4 justify-center items-center hover:bg-neutral-600">
+      <NavLink to="/Navsearch" className=" ml-2 big:hidden flex min-w-10 min-h-10 rounded-full bg-secondary margin:ml-4 justify-center items-center hover:bg-neutral-600">
       <FaSearch className="text-text" />
-      </button>
+      </NavLink>
 
-      <button className="min-w-10 min-h-10 rounded-full bg-secondary ml-4 flex justify-center items-center hover:bg-neutral-600">
+      <button className="ml-2 min-w-10 min-h-10 rounded-full bg-secondary margin:ml-4 flex justify-center items-center hover:bg-neutral-600">
         <MdKeyboardVoice className="text-text w-6 h-6" />
       </button>
     </div>

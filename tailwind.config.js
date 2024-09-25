@@ -25,6 +25,7 @@ export default {
         },
         screens: {
           big: '428px',
+          margin: '358px'
         }
   },
   plugins: [],

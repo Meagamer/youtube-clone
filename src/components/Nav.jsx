@@ -2,14 +2,15 @@ import { HiOutlineBars3 } from "react-icons/hi2";
 import YoutubeLogo from '../assets/YoutubeLogo.png';
 import SearchBar from "./SearchBar";
 import { BsPersonCircle } from "react-icons/bs";
+import { NavLink, Outlet } from "react-router-dom";
 
 function Nav() {
   return (
     <>
-      <div className="w-full h-14 bg-background pl-6 pr-6 flex items-center overflow-hidden justify-between">
+      <div className=" pl-0 w-full h-14 bg-background margin:pl-6 pr-6 flex items-center overflow-hidden justify-between">
         <div className="flex items-center">
         <button className="rounded-full hover:bg-neutral-600 w-10 h-10"><HiOutlineBars3 className="text-text h-7 w-10 "/></button>
-        <button><img src={YoutubeLogo} alt="youtube-logo" className="min-w-24 max-w-[100px] ml-3 object-cover"/></button>
+        <NavLink to='/'><img src={YoutubeLogo} alt="youtube-logo" className="min-w-18 max-w-[100px] ml-3 object-cover"/></NavLink>
 
         </div>
 
@@ -22,6 +23,7 @@ function Nav() {
         </button>
 
       </div>
+        <Outlet />
     </>
   )
 }
