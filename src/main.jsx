@@ -7,17 +7,12 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import SmalNavSearch from "./components/SmalNavSearch";
+import App from "./App";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Nav />,
-    children: [
-      {
-      path: "/Navsearch",
-      element: <SmalNavSearch />,
-    },
-    ]
+    element: <App />,
   },
 ]);
 
