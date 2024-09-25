@@ -24,8 +24,8 @@ export default {
           search: '32rem',
         },
         screens: {
-          big: '428px',
-          margin: '358px'
+          after428: '428px',
+          after358: '358px'
         }
   },
   plugins: [],

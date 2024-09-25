@@ -1,14 +1,13 @@
-import { Outlet } from "react-router-dom"
 import Nav from "./components/Nav"
-import SideBar from "./components/SideBar"
 import { useState } from 'react';
-
 
 function App() {
   const [searchopen, setSearchopen] = useState(false)
+  console.log(searchopen);
+
   return (
     <>
-<Nav status={{isOpen: searchopen, setOpen: setSearchopen}}/>
+<Nav isOpen={searchopen} setOpen={setSearchopen}/>
     </>
   )
 }
