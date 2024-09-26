@@ -16,6 +16,7 @@ export default {
           text: '#ffffff',
           hover: '#aaaaaa',
           search: '#121212',
+          neautral: '#525252'
         },
         width: {
           search: '38rem',
