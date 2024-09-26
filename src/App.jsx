@@ -3,24 +3,22 @@ import { useState } from 'react';
 import SideBar from "./components/SideBar";
 import { useEffect } from "react";
 import PropTypes from "prop-types";
+import { Outlet } from "react-router-dom";
+import Home from "./components/Home";
 
 function App() {
   const [searchopen, setSearchopen] = useState(false)
   const [expand, setExpand] = useState(true)
-  const [isVisible, setIsVisible] = useState(true)
   
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 428) {
-        setIsVisible(false);
-         
-      } else if (window.innerWidth <= 1024) {
+     if (window.innerWidth <= 1024) {
         setExpand(false);                                                                                
-        setIsVisible(true);
+
 
       } else {            
         setExpand(true);                        
-        setIsVisible(true);                                                    
+                                               
       }
     };
 
@@ -33,21 +31,24 @@ function App() {
     };
   }, []);
   
-  console.log(isVisible);
-  return (
-    <>
-    <Nav isOpen={searchopen} setOpen={setSearchopen} expand={expand} setExpand={setExpand} visible={isVisible} setVisible={setIsVisible}/>
-     
-    <SideBar expand={expand} isVisible={isVisible} />
-    </>
-  )
-}
+    return (
+      <div className={`grid grid-rows-[auto_1fr] ${expand ? 'grid-cols-[240px_1fr]' : 'grid-cols-[50px_1fr]'} absolute`}>
+        <div className="col-span-2">
+        <Nav isOpen={searchopen} setOpen={setSearchopen} expand={expand} setExpand={setExpand}/>  
+        </div>
+        <div className=" z-10">
+        <SideBar expand={expand}/>
+        </div>
+        <div className=" -z-10">
+          <Outlet />
+        </div>
+      </div>
+    );
+  };
 
+  
 App.prototype = {
   setExpand: PropTypes.func.isRequired,
-  expand: PropTypes.bool.isRequired, 
-  setIsVisible: PropTypes.func.isRequired,
-  isVisible: PropTypes.bool.isRequired, 
-}
+  expand: PropTypes.bool.isRequired, }
 
 export default App

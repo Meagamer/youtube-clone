@@ -27,6 +27,10 @@ export default {
         screens: {
           after428: '428px',
           after358: '358px'
+        },
+        fontSize: {
+          ss: '10px',
+          norm: '16px'
         }
   },
   plugins: [],

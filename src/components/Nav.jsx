@@ -8,12 +8,7 @@ import PropTypes from "prop-types";
 
 
 
-function Nav({ isOpen, setOpen, expand, setExpand, visible, setVisible}) {
-
-  const toggleVisibility = () => {
-    setVisible(visible = !visible);
-  };
-  console.log(visible);
+function Nav({ isOpen, setOpen, expand, setExpand,}) {
 
 
   return (
@@ -22,8 +17,7 @@ function Nav({ isOpen, setOpen, expand, setExpand, visible, setVisible}) {
       { !isOpen ? (  
       <div className=" pl-0 w-full h-14 bg-background after358::pl-6 pr-6 flex items-center overflow-hidden justify-between">
         <div className="flex items-center">
-        <button onClick={(() => {setExpand(!expand); 
-                                 toggleVisibility})} className="rounded-full hover:bg-neautral w-10 h-10"><HiOutlineBars3 className="text-text h-7 w-10 "/></button>
+        <button onClick={(() => (setExpand(!expand)))} className="rounded-full hover:bg-neautral w-10 h-10"><HiOutlineBars3 className="text-text h-7 w-10 "/></button>
         <NavLink to='/'><img src={YoutubeLogo} alt="youtube-logo" className="min-w-18 max-w-[100px] ml-3 object-cover"/></NavLink>
 
         </div>
@@ -48,8 +42,7 @@ Nav.propTypes = {
   isOpen: PropTypes.bool.isRequired, 
   setExpand: PropTypes.func.isRequired,
   expand: PropTypes.bool.isRequired, 
-  setVisible: PropTypes.func.isRequired,
-  visible: PropTypes.bool.isRequired, 
+
 };
 
 export default Nav

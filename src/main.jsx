@@ -8,11 +8,16 @@ import {
 import "./index.css";
 import SmalNavSearch from "./components/SmalNavSearch";
 import App from "./App";
+import Home from "./components/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children:[{
+       path: "home",
+       element: <Home />,
+    }]
   },
 ]);
 
