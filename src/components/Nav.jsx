@@ -5,11 +5,12 @@ import { BsPersonCircle } from "react-icons/bs";
 import { NavLink, } from "react-router-dom";
 import SmalNavSearch from "./SmalNavSearch";
 import PropTypes from "prop-types";
+import SideExpand from "../context/SideExpand";
+import { useContext } from "react";
 
 
-
-function Nav({ isOpen, setOpen, expand, setExpand,}) {
-
+function Nav({ isOpen, setOpen,}) {
+  const { expand, setExpand } = useContext(SideExpand);
 
   return (
     <>

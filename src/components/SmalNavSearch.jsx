@@ -1,8 +1,30 @@
 import SearchInput from "./SearchInput"
 import { IoMdClose } from "react-icons/io";
 import PropTypes from "prop-types";
+import { useEffect } from "react";
+
+
+
+
 
 function SmalNavSearch({isOpen,setOpen}) {
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 428 && isOpen) {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isOpen, setOpen]);
+
   return (
     <div className=" after428:hidden pl-6  w-full h-14 bg-background pr-6 flex items-center overflow-hidden justify-between">
        <SearchInput />

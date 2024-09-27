@@ -1,14 +1,15 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import Nav from "./components/Nav";
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import SmalNavSearch from "./components/SmalNavSearch";
 import App from "./App";
 import Home from "./components/Home";
+import SideExpand from "../context/SideExpand";
+import { useContext } from "react";
+
 
 const router = createBrowserRouter([
   {

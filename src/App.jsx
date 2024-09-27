@@ -1,14 +1,19 @@
 import Nav from "./components/Nav"
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import SideBar from "./components/SideBar";
 import { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Outlet } from "react-router-dom";
-import Home from "./components/Home";
+import { SideExpandProvider } from "./context/SideExpandProvider";
+import SideExpand from "../context/SideExpand";
+
+
+
+
 
 function App() {
   const [searchopen, setSearchopen] = useState(false)
-  const [expand, setExpand] = useState(true)
+  const { expand, setExpand } = useContext(SideExpand);
   
   useEffect(() => {
     const handleResize = () => {
@@ -32,17 +37,19 @@ function App() {
   }, []);
   
     return (
-      <div className={`grid grid-rows-[auto_1fr] ${expand ? 'grid-cols-[240px_1fr]' : 'grid-cols-[50px_1fr]'} absolute`}>
+      <SideExpandProvider>
+      <div className={`grid grid-rows-[auto_1fr] ${expand ? 'grid-cols-[240px_1fr]' : 'grid-cols-[50px_1fr]'}`}>
         <div className="col-span-2">
-        <Nav isOpen={searchopen} setOpen={setSearchopen} expand={expand} setExpand={setExpand}/>  
+        <Nav isOpen={searchopen} setOpen={setSearchopen} />  
         </div>
         <div className=" z-10">
-        <SideBar expand={expand}/>
+        <SideBar/>
         </div>
         <div className=" -z-10">
           <Outlet />
         </div>
       </div>
+      </SideExpandProvider>
     );
   };
 
